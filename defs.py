@@ -32,34 +32,34 @@ sources = {
 	'C8': { 'w': 40, 'h': 40, 'l': 1405, 'quality': 0 }
 }
 
-w = 1320
-l = 2430
-h = 2390
+w = 1320 # measured
+l = 2430 # measured
+h = 2390 # measured
 
-h_A1 = 10
-h_A2 = 10
-h_A3 = 30
-h_A4 = 30
+h_A1 = 10 # calc
+h_A2 = 10 # calc
+h_A3 = 30 # calc
+h_A4 = 30 # calc
 
-l_win = 1300
-l_s = 500
-w_s = 500
-h_s = 500
+l_win = 1300 # measured
+l_s = 500 # defined
+w_s = 500 # defined
+h_s = 500 # defined
 
-h_S1 = 20
-h_S2 = 20
-h_S3 = 20
-h_S4 = 20
+h_S1 = 20 # calc
+h_S2 = 20 # calc
+h_S3 = 20 # calc
+h_S4 = 20 # calc
 
-h_R = 400
-l_R = l - 2 * h_R
+h_R = 400 # defined
+l_R = l - 2 * h_R # calc
 
 # l_R = 
 # h_R = (l - l_R) / 2
 
 
-x_1A = 50
-x_1B = 40
+x_1A = 50 # defined
+x_1B = 40 # defined
 x_1 = x_1A + x_1B
 
 
