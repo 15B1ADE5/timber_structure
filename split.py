@@ -53,9 +53,9 @@ def solve_bin_problem(bins, items):
 def print_packed(sources):
 	for source in sources:
 		capacity_left = source[0] - sum([size for size, _ in sources[source]])
-		print(f'   {source} (left {capacity_left}):')
+		print(f'   {source[1]} (size: {source[0]} / left: {capacity_left}):')
 		for item in sources[source]:
-			print(f'      {item}')
+			print(f'      {item[1]} (size: {item[0]})')
 
 sources = classify_by_WH(defs.sources)
 parts = classify_by_WH(defs.parts)
@@ -68,10 +68,11 @@ for class_ in parts:
 		parts_to_lengths(parts[class_])
 	)
 
-	print("Packed:")
+	print('Packed:')
 	print_packed(packed_bins)
-	print("Left:")
+	left = sum([size for size, _ in items_left])
+	print(f'Left ({left}):')
 	for item in items_left:
-		print(f'   {item}')
+		print(f'   {item[1]} (size: {item[0]})')
 
 # print(parts_to_lengths(sources[(40,40)]) )

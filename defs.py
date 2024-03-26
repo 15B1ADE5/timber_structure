@@ -161,11 +161,11 @@ parts = {
 		'size': { 'w': 40, 'h': 40, 'l': w }
 	},
 	'R_2': {
-		'num': 2,
+		'num': 1,
 		'size': { 'w': 40, 'h': 40, 'l': l_R }
 	},
 	'R_3': {
-		'num': 8,
+		'num': 0,
 		'size': { 'w': 40, 'h': 40, 'l': round(h_R * np.sqrt(2) ) }
 	},
 	'R_4': {
@@ -177,7 +177,13 @@ parts = {
 	'D_1': {
 		'num': 4*3,
 		'quality': 1,
-		'size': { 'w': 40, 'h': 40, 'l': 40 } # same as R_3?
+		'size': { 'w': 40, 'h': 40, 'l': 350 } # same as R_3?
+	},
+
+	'H_1_5': {
+		'num': 5,
+		'quality': 1,
+		'size': { 'w': 40, 'h': 40, 'l': w } # same as R_3?
 	},
 }
 
