@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import defs
-import yaml
+# import yaml
 import numpy as np
 
 def classify_by_WH(parts):
@@ -60,9 +60,9 @@ def print_packed(sources):
 sources = classify_by_WH(defs.sources)
 parts = classify_by_WH(defs.parts)
 
-
+print('\n###### PARTS ######')
 for class_ in parts:
-	print(f'--- {class_} ---')
+	print(f'\n--- {class_} ---')
 	packed_bins, items_left = solve_bin_problem(
 		parts_to_lengths(sources[class_]),
 		parts_to_lengths(parts[class_])

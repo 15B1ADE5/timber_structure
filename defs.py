@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import floor
 import numpy as np
 
 sources = {
@@ -32,35 +33,58 @@ sources = {
 	'C8': { 'size': { 'w': 40, 'h': 40, 'l': 1405 }, 'quality': 0 }
 }
 
+print('###### DEFS ######')
+# Measures / defines:
 w = 1320 # measured
 l = 2430 # measured
 h = 2390 # measured
 
-h_A1 = 10 # calc
-h_A2 = 10 # calc
-h_A3 = 30 # calc
-h_A4 = 30 # calc
+# For floor curvature compensation
+hf_0 = 40
+hf_l_l = 1000
+hf_l_h = 90
+hf_w_w = 1000
+hf_w_h = 70
 
 l_win = 1300 # measured
 l_s = 500 # defined
 w_s = 500 # defined
 h_s = 500 # defined
 
+h_R = 400 # defined
+l_R = None
+
+x_1A = 50 # defined
+x_1B = 40 # defined
+
+floorCC = floor.CurvatureCompensator(
+	hf_0,
+	hf_l_l,
+	hf_l_h,
+	hf_w_w,
+	hf_w_h
+)
+print('Floor Curvature Compensation:')
+print(f' - Floor angle l: {np.degrees( floorCC.angle_l() ):.1f} o')
+print(f' - Floor angle w: {np.degrees( floorCC.angle_w() ):.1f} o')
+
+h_A1 = floorCC.compensated_h(80, 80)
+h_A2 = 10 # calc
+h_A3 = 30 # calc
+h_A4 = 30 # calc
+
 h_S1 = 20 # calc
 h_S2 = 20 # calc
 h_S3 = 20 # calc
 h_S4 = 20 # calc
 
-h_R = 400 # defined
-l_R = round(l - 2 * h_R) # calc
+if l_R is None:
+	l_R = round(l - 2 * h_R) # calc
+elif h_R is None:
+	h_R = (l - l_R) / 2
 
-# l_R = 
-# h_R = (l - l_R) / 2
-
-
-x_1A = 50 # defined
-x_1B = 40 # defined
 x_1 = x_1A + x_1B
+
 
 part_base = {
 	'size': { 'w': 0, 'h': 0, 'l': 0 },
